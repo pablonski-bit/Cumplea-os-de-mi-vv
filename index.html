@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta de Cumpleaños 💖</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffc7df,#ffdff0,#ffc4f5);
+  position:relative;
+}
+
+/* Corazones flotando */
+.heart{
+  position:absolute;
+  font-size:20px;
+  opacity:0.7;
+  animation:float 7s linear infinite;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(100vh) scale(0.5);
+    opacity:0;
+  }
+  30%{
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-120vh) scale(1.3);
+    opacity:0;
+  }
+}
+
+.container{
+  position:relative;
+  width:360px;
+  height:250px;
+  cursor:pointer;
+}
+
+/* SOBRE */
+.envelope{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#ff4f9a;
+  border-radius:0 0 25px 25px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+  overflow:hidden;
+  z-index:5;
+}
+
+/* TAPA */
+.top{
+  position:absolute;
+  top:0;
+  width:0;
+  height:0;
+  border-left:180px solid transparent;
+  border-right:180px solid transparent;
+  border-top:130px solid #ff77b5;
+  transform-origin:top;
+  transition:1s;
+  z-index:8;
+}
+
+/* TEXTO CLICK */
+.click-text{
+  position:absolute;
+  width:100%;
+  top:95px;
+  text-align:center;
+  color:white;
+  font-size:28px;
+  font-weight:bold;
+  z-index:7;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+}
+
+/* CARTA */
+.letter{
+  position:absolute;
+  left:50%;
+  top:180px;
+  transform:translateX(-50%) scale(0.2);
+  width:340px;
+  min-height:600px;
+  background:linear-gradient(180deg,#fff,#fff5fb);
+  border-radius:35px;
+  padding:35px 28px;
+  text-align:center;
+  box-shadow:0 25px 60px rgba(0,0,0,0.25);
+  opacity:0;
+  transition:1.2s cubic-bezier(0.22,1,0.36,1);
+  z-index:1;
+  border:5px solid #ffd4e8;
+}
+
+/* ABRIR SOBRE */
+.container.open .top{
+  transform:rotateX(180deg);
+}
+
+.container.open .letter{
+  top:-180px;
+  transform:translateX(-50%) scale(1);
+  opacity:1;
+  z-index:10;
+}
+
+h1{
+  color:#ff4f9a;
+  font-size:45px;
+  line-height:1.2;
+  margin-bottom:30px;
+  text-shadow:0 5px 15px rgba(255,105,180,0.3);
+}
+
+p{
+  color:#555;
+  font-size:23px;
+  line-height:1.9;
+  margin-bottom:20px;
+}
+
+.photo{
+  width:250px;
+  height:250px;
+  object-fit:cover;
+  border-radius:30px;
+  margin-top:20px;
+  border:6px solid #ffcde4;
+  box-shadow:0 10px 25px rgba(255,105,180,0.25);
+  transition:0.5s;
+}
+
+.photo:hover{
+  transform:scale(1.05);
+}
+
+.firma{
+  margin-top:25px;
+  font-size:28px;
+  color:#ff4f9a;
+  font-weight:bold;
+}
+
+/* CELULAR */
+@media(max-width:480px){
+
+  .container{
+    width:320px;
+    height:220px;
+  }
+
+  .top{
+    border-left:160px solid transparent;
+    border-right:160px solid transparent;
+    border-top:115px solid #ff77b5;
+  }
+
+  .click-text{
+    font-size:22px;
+    top:90px;
+  }
+
+  .letter{
+    width:300px;
+    min-height:520px;
+    padding:28px 18px;
+  }
+
+  .container.open .letter{
+    top:-130px;
+  }
+
+  h1{
+    font-size:36px;
+  }
+
+  p{
+    font-size:19px;
+  }
+
+  .photo{
+    width:220px;
+    height:220px;
+  }
+
+  .firma{
+    font-size:24px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<script>
+for(let i=0;i<25;i++){
+  const heart=document.createElement('div');
+  heart.classList.add('heart');
+  heart.innerHTML='💖';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.animationDuration=(5+Math.random()*5)+'s';
+  heart.style.fontSize=(15+Math.random()*30)+'px';
+  document.body.appendChild(heart);
+}
+</script>
+
+<div class="container" onclick="this.classList.toggle('open')">
+
+  <div class="envelope"></div>
+  <div class="top"></div>
+
+  <div class="click-text">
+    💌 Haz click aquí 💌
+  </div>
+
+  <div class="letter">
+
+    <h1>
+      🎂 Feliz <br>
+      Cumpleaños Mi Amor 🎂
+    </h1>
+
+    <p>
+      Feliz cumpleaños mi amorcito 💖<br><br>
+      Espero que hoy día seas muy pero muy feliz para la niña más hermosha en el mundo.<br><br>
+      Espero que cumplas todas tus metas y sueños ✨<br><br>
+      Te amo demasiado ❤️
+    </p>
+
+    <img
+      class="photo"
+      src="71112dff-9ace-49be-8569-7471ee12c5c0.jpeg"
+    >
+
+    <div class="firma">
+      Atte: Tu Fabrico 💕
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
